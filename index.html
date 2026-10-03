@@ -29,64 +29,18 @@
   --body:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
 }
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0
-}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:18px;line-height:1.55}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
 
-html{
-  scroll-behavior:smooth
-}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:var(--body);
-  font-size:18px;
-  line-height:1.55
-}
-
-img{
-  display:block;
-  max-width:100%
-}
-
-a{
-  color:inherit
-}
-
-:focus-visible{
-  outline:3px solid var(--lime);
-  outline-offset:3px
-}
-
-.wrap{
-  max-width:1120px;
-  margin:0 auto;
-  padding:0 24px
-}
-
-.sr{
-  position:absolute;
-  width:1px;
-  height:1px;
-  overflow:hidden;
-  clip:rect(0 0 0 0);
-  white-space:nowrap
-}
-
-header{
-  padding:18px 0;
-  border-bottom:2px solid var(--lime-dim)
-}
-
-header .wrap{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px
-}
+header{padding:18px 0;border-bottom:2px solid var(--lime-dim)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
 
 .logo{
   font-family:var(--display);
@@ -96,21 +50,9 @@ header .wrap{
   text-shadow:0 0 18px rgba(204,255,0,.35)
 }
 
-nav{
-  display:flex;
-  gap:24px;
-  font-weight:700;
-  font-size:16px
-}
-
-nav a{
-  text-decoration:none;
-  color:var(--text)
-}
-
-nav a:hover{
-  color:var(--lime)
-}
+nav{display:flex;gap:24px;font-weight:700;font-size:16px}
+nav a{text-decoration:none;color:var(--text)}
+nav a:hover{color:var(--lime)}
 
 .btn{
   display:inline-block;
@@ -129,14 +71,9 @@ nav a:hover{
   box-shadow:3px 3px 0 var(--lime-dim)
 }
 
-.btn.alt{
-  background:transparent;
-  color:var(--lime)
-}
+.btn.alt{background:transparent;color:var(--lime)}
 
-.hero{
-  overflow:hidden
-}
+.hero{overflow:hidden}
 
 .hero .banner{
   width:100%;
@@ -198,9 +135,7 @@ nav a:hover{
   )
 }
 
-section{
-  padding:88px 0
-}
+section{padding:88px 0}
 
 h2{
   font-family:var(--display);
@@ -318,13 +253,8 @@ h2{
   border-bottom:2px dotted var(--lime-dim)
 }
 
-.wallet .card div:last-child{
-  border:0
-}
-
-.wallet .card b{
-  color:var(--lime)
-}
+.wallet .card div:last-child{border:0}
+.wallet .card b{color:var(--lime)}
 
 .gallery{
   display:grid;
@@ -339,9 +269,7 @@ h2{
   transition:border-color .15s
 }
 
-.cut:hover{
-  border-color:var(--lime)
-}
+.cut:hover{border-color:var(--lime)}
 
 .cut .pic{
   aspect-ratio:1;
@@ -368,9 +296,7 @@ h2{
   justify-content:space-between
 }
 
-.cut p span{
-  color:var(--lime)
-}
+.cut p span{color:var(--lime)}
 
 .final{
   background:var(--lime);
@@ -414,9 +340,7 @@ footer a{
   color:var(--text)
 }
 
-footer a:hover{
-  color:var(--lime)
-}
+footer a:hover{color:var(--lime)}
 
 @media(max-width:860px){
   .wallet .cols{
@@ -428,9 +352,7 @@ footer a:hover{
     grid-template-columns:repeat(2,1fr)
   }
 
-  nav{
-    display:none
-  }
+  nav{display:none}
 
   .grill .row img:nth-child(n+5){
     display:none
@@ -438,18 +360,10 @@ footer a:hover{
 }
 
 @media(max-width:520px){
-  body{
-    font-size:17px
-  }
+  body{font-size:17px}
 
-  .dish{
-    flex-wrap:wrap
-  }
-
-  .dish .dots{
-    display:none
-  }
-
+  .dish{flex-wrap:wrap}
+  .dish .dots{display:none}
   .dish .name{
     white-space:normal;
     font-size:21px
@@ -499,11 +413,13 @@ footer a:hover{
     >
 
     <div class="copy">
+
       <p class="sub">
         100 steak NFTs built for Robinhood Chain, with utility in every single token.
       </p>
 
       <div class="cta">
+
         <a class="btn" href="#mint" data-link="mint">
           Mint a Steakhood
         </a>
@@ -511,12 +427,17 @@ footer a:hover{
         <a class="btn alt" href="#" data-link="opensea">
           View on OpenSea
         </a>
+
       </div>
+
     </div>
 
     <div class="grill" aria-hidden="true">
+
       <div class="row" id="grillRow"></div>
+
       <div class="bars"></div>
+
     </div>
 
   </section>
@@ -729,14 +650,11 @@ const CONFIG = {
 
     mint: "",
 
-    opensea:
-      "https://opensea.io/collection/steak-jpeg",
+    opensea: "",
 
-    x:
-      "https://x.com/steakhoodnft",
+    x: "",
 
-    discord:
-      ""
+    discord: ""
 
   },
 
@@ -759,11 +677,6 @@ const remote = n =>
   CONFIG.gateway + CONFIG.imageCid + "/" + n + ".png";
 
 
-/*
-  Try the local repo image first.
-  If it does not exist, use the IPFS copy.
-*/
-
 function load(i, n){
 
   i.onerror = () => {
@@ -781,7 +694,6 @@ function load(i, n){
 
 /*
   Wire up links.
-  Unset links remain disabled.
 */
 
 document
@@ -810,7 +722,7 @@ document
 
 
 /*
-  Hero images
+  Hero
 */
 
 const row =
@@ -850,12 +762,9 @@ CONFIG.gallery.forEach(n => {
   c.innerHTML =
     '<div class="pic" aria-hidden="true">#' +
     n +
-    '</div>' +
-
-    '<p>Steakhood #' +
+    '</div><p>Steakhood #' +
     n +
     '<span>1 of 1</span></p>';
-
 
   const i =
     new Image();
@@ -863,9 +772,7 @@ CONFIG.gallery.forEach(n => {
   i.alt =
     "Steakhood #" + n;
 
-
   load(i, n);
-
 
   i.onload = () => {
 
@@ -877,7 +784,6 @@ CONFIG.gallery.forEach(n => {
     pic.appendChild(i);
 
   };
-
 
   g.appendChild(c);
 
