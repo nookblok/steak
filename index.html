@@ -1,1885 +1,889 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="utf-8">
+<meta name="theme-color" content="#0b0c06">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Steakhood | 100 steak NFTs on Robinhood Chain</title>
+<meta name="description" content="Steakhood is a collection of 100 steak NFTs built for Robinhood Chain, with utility in every single token.">
+<meta property="og:title" content="Steakhood">
+<meta property="og:image" content="assets/banner.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:description" content="100 steak NFTs on Robinhood Chain. Every token is a wallet with rewards, staking, stock perks and community access.">
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1"
->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230b0c06'/><text x='50' y='72' font-size='64' text-anchor='middle'>🥩</text></svg>">
 
-<meta
-  name="theme-color"
-  content="#0b0c06"
->
-
-<title>
-  Steakhood | 100 Steak NFTs on Robinhood Chain
-</title>
-
-<meta
-  name="description"
-  content="Steakhood is a collection of 100 steak NFTs built for Robinhood Chain."
->
-
-<meta
-  property="og:title"
-  content="Steakhood"
->
-
-<meta
-  property="og:description"
-  content="100 steak NFTs on Robinhood Chain."
->
-
-<meta
-  property="og:image"
-  content="assets/steakhood_banner.png"
->
-
-<meta
-  name="twitter:card"
-  content="summary_large_image"
->
-
-<link
-  rel="preconnect"
-  href="https://fonts.googleapis.com"
->
-
-<link
-  rel="preconnect"
-  href="https://fonts.gstatic.com"
->
-
-<link
-  href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=DM+Sans:wght@400;500;700&display=swap"
-  rel="stylesheet"
->
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
-
-/* =========================================================
-   ROOT
-========================================================= */
-
-:root {
-
-  --bg: #0b0c06;
-
-  --panel: #13150a;
-
-  --lime: #ccff00;
-
-  --lime-dim: #344200;
-
-  --text: #e6eacf;
-
-  --muted: #9aa07f;
-
-  --display:
-    "Bowlby One",
-    "Arial Black",
-    Impact,
-    sans-serif;
-
-  --body:
-    "DM Sans",
-    system-ui,
-    -apple-system,
-    "Segoe UI",
-    sans-serif;
-
+:root{
+  --bg:#0b0c06;
+  --panel:#13150a;
+  --lime:#ccff00;
+  --lime-dim:#344200;
+  --text:#e6eacf;
+  --muted:#9aa07f;
+  --display:"Bowlby One","Arial Black",Impact,sans-serif;
+  --body:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
 }
 
-
-/* =========================================================
-   RESET
-========================================================= */
-
-* {
-
-  box-sizing: border-box;
-
-  margin: 0;
-
-  padding: 0;
-
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0
 }
 
-
-html {
-
-  scroll-behavior: smooth;
-
+html{
+  scroll-behavior:smooth
 }
 
-
-body {
-
-  position: relative;
-
-  background: var(--bg);
-
-  color: var(--text);
-
-  font-family: var(--body);
-
-  font-size: 18px;
-
-  line-height: 1.55;
-
-  overflow-x: hidden;
-
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--body);
+  font-size:18px;
+  line-height:1.55
 }
 
-
-img {
-
-  display: block;
-
-  max-width: 100%;
-
+img{
+  display:block;
+  max-width:100%
 }
 
-
-a {
-
-  color: inherit;
-
+a{
+  color:inherit
 }
 
-
-button,
-a {
-
-  -webkit-tap-highlight-color: transparent;
-
+:focus-visible{
+  outline:3px solid var(--lime);
+  outline-offset:3px
 }
 
-
-:focus-visible {
-
-  outline: 3px solid var(--lime);
-
-  outline-offset: 3px;
-
+.wrap{
+  max-width:1120px;
+  margin:0 auto;
+  padding:0 24px
 }
 
-
-/* =========================================================
-   ANIMATED STEAK BACKGROUND
-========================================================= */
-
-.steak-background {
-
-  position: fixed;
-
-  inset: 0;
-
-  overflow: hidden;
-
-  pointer-events: none;
-
-  z-index: 0;
-
-  opacity: .075;
-
+.sr{
+  position:absolute;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+  clip:rect(0 0 0 0);
+  white-space:nowrap
 }
 
-
-.steak-background span {
-
-  position: absolute;
-
-  display: block;
-
-  font-size: clamp(35px, 6vw, 85px);
-
-  filter: grayscale(1);
-
-  user-select: none;
-
-  will-change: transform;
-
-  animation:
-    steakFloat linear infinite,
-    steakPulse ease-in-out infinite alternate;
-
+header{
+  padding:18px 0;
+  border-bottom:2px solid var(--lime-dim)
 }
 
-
-/* Steak positions */
-
-.steak-background span:nth-child(1) {
-
-  left: 5%;
-
-  top: 15%;
-
-  animation-duration: 18s, 5s;
-
+header .wrap{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px
 }
 
-
-.steak-background span:nth-child(2) {
-
-  left: 18%;
-
-  top: 70%;
-
-  animation-duration: 23s, 7s;
-
+.logo{
+  font-family:var(--display);
+  font-size:22px;
+  color:var(--lime);
+  text-decoration:none;
+  text-shadow:0 0 18px rgba(204,255,0,.35)
 }
 
-
-.steak-background span:nth-child(3) {
-
-  left: 32%;
-
-  top: 25%;
-
-  animation-duration: 20s, 6s;
-
+nav{
+  display:flex;
+  gap:24px;
+  font-weight:700;
+  font-size:16px
 }
 
-
-.steak-background span:nth-child(4) {
-
-  left: 48%;
-
-  top: 82%;
-
-  animation-duration: 26s, 8s;
-
+nav a{
+  text-decoration:none;
+  color:var(--text)
 }
 
-
-.steak-background span:nth-child(5) {
-
-  left: 63%;
-
-  top: 18%;
-
-  animation-duration: 21s, 5s;
-
+nav a:hover{
+  color:var(--lime)
 }
 
-
-.steak-background span:nth-child(6) {
-
-  left: 78%;
-
-  top: 65%;
-
-  animation-duration: 24s, 7s;
-
+.btn{
+  display:inline-block;
+  font:700 18px var(--body);
+  padding:15px 28px;
+  border:3px solid var(--lime);
+  background:var(--lime);
+  color:var(--bg);
+  text-decoration:none;
+  box-shadow:6px 6px 0 var(--lime-dim);
+  transition:transform .12s,box-shadow .12s
 }
 
-
-.steak-background span:nth-child(7) {
-
-  left: 91%;
-
-  top: 30%;
-
-  animation-duration: 19s, 6s;
-
+.btn:hover{
+  transform:translate(3px,3px);
+  box-shadow:3px 3px 0 var(--lime-dim)
 }
 
-
-.steak-background span:nth-child(8) {
-
-  left: 12%;
-
-  top: 45%;
-
-  animation-duration: 27s, 9s;
-
+.btn.alt{
+  background:transparent;
+  color:var(--lime)
 }
 
-
-.steak-background span:nth-child(9) {
-
-  left: 40%;
-
-  top: 55%;
-
-  animation-duration: 22s, 6s;
-
+.hero{
+  overflow:hidden
 }
 
-
-.steak-background span:nth-child(10) {
-
-  left: 72%;
-
-  top: 42%;
-
-  animation-duration: 25s, 8s;
-
+.hero .banner{
+  width:100%;
+  max-width:1500px;
+  margin:0 auto;
+  image-rendering:pixelated
 }
 
-
-.steak-background span:nth-child(11) {
-
-  left: 85%;
-
-  top: 80%;
-
-  animation-duration: 20s, 5s;
-
+.hero .copy{
+  text-align:center;
+  padding:8px 24px 64px
 }
 
-
-.steak-background span:nth-child(12) {
-
-  left: 3%;
-
-  top: 88%;
-
-  animation-duration: 28s, 9s;
-
+.hero .sub{
+  max-width:600px;
+  margin:0 auto 32px;
+  font-size:21px
 }
 
+.hero .cta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  justify-content:center
+}
 
-/* Floating movement */
+.grill{
+  border-top:3px solid var(--lime);
+  background:var(--panel);
+  padding:34px 0 0
+}
 
-@keyframes steakFloat {
+.grill .row{
+  display:flex;
+  gap:18px;
+  justify-content:center;
+  align-items:flex-end;
+  padding:0 24px
+}
 
-  0% {
+.grill .row img{
+  width:clamp(88px,15vw,190px);
+  image-rendering:pixelated;
+  border:3px solid var(--lime);
+  background:var(--lime)
+}
 
-    transform:
-      translate3d(0, 40px, 0)
-      rotate(-12deg);
+.grill .row img:nth-child(even){
+  transform:translateY(-22px)
+}
 
+.grill .bars{
+  height:26px;
+  margin-top:26px;
+  background:repeating-linear-gradient(
+    90deg,
+    var(--lime-dim) 0 14px,
+    var(--bg) 14px 34px
+  )
+}
+
+section{
+  padding:88px 0
+}
+
+h2{
+  font-family:var(--display);
+  font-weight:400;
+  font-size:clamp(34px,6vw,64px);
+  line-height:1;
+  margin-bottom:20px;
+  color:var(--lime);
+  text-shadow:0 0 24px rgba(204,255,0,.25)
+}
+
+.lead{
+  max-width:640px;
+  font-size:20px;
+  color:var(--text)
+}
+
+.menu{
+  background:var(--panel);
+  border:3px solid var(--lime);
+  margin-top:44px;
+  padding:44px clamp(22px,5vw,64px);
+  box-shadow:10px 10px 0 var(--lime-dim);
+  position:relative
+}
+
+.menu::before{
+  content:"";
+  position:absolute;
+  inset:10px;
+  border:2px dashed var(--lime-dim);
+  pointer-events:none
+}
+
+.menu h3{
+  font-family:var(--display);
+  font-weight:400;
+  font-size:30px;
+  text-align:center;
+  margin-bottom:6px;
+  color:var(--lime)
+}
+
+.menu .note{
+  text-align:center;
+  font-size:16px;
+  margin-bottom:34px;
+  color:var(--muted)
+}
+
+.dish{
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+  margin-bottom:6px
+}
+
+.dish .name{
+  font-family:var(--display);
+  font-size:24px;
+  white-space:nowrap;
+  color:var(--text)
+}
+
+.dish .dots{
+  flex:1;
+  border-bottom:3px dotted var(--lime-dim);
+  min-width:20px;
+  transform:translateY(-5px)
+}
+
+.dish .price{
+  font-weight:700;
+  color:var(--lime);
+  white-space:nowrap
+}
+
+.dish-desc{
+  max-width:620px;
+  margin-bottom:30px;
+  font-size:17px;
+  color:var(--muted)
+}
+
+.wallet{
+  background:var(--panel);
+  border-top:3px solid var(--lime-dim);
+  border-bottom:3px solid var(--lime-dim)
+}
+
+.wallet .cols{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:56px;
+  align-items:center
+}
+
+.wallet p{
+  margin-bottom:16px;
+  max-width:520px
+}
+
+.wallet .card{
+  border:3px solid var(--lime);
+  padding:28px;
+  font-size:17px;
+  background:var(--bg)
+}
+
+.wallet .card div{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding:12px 0;
+  border-bottom:2px dotted var(--lime-dim)
+}
+
+.wallet .card div:last-child{
+  border:0
+}
+
+.wallet .card b{
+  color:var(--lime)
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+  margin-top:44px
+}
+
+.cut{
+  background:var(--panel);
+  border:3px solid var(--lime-dim);
+  transition:border-color .15s
+}
+
+.cut:hover{
+  border-color:var(--lime)
+}
+
+.cut .pic{
+  aspect-ratio:1;
+  background:var(--lime-dim);
+  display:grid;
+  place-items:center;
+  font-family:var(--display);
+  font-size:44px;
+  color:var(--lime)
+}
+
+.cut img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  image-rendering:pixelated
+}
+
+.cut p{
+  padding:12px 14px;
+  font-weight:700;
+  border-top:3px solid var(--lime-dim);
+  display:flex;
+  justify-content:space-between
+}
+
+.cut p span{
+  color:var(--lime)
+}
+
+.final{
+  background:var(--lime);
+  color:var(--bg);
+  text-align:center
+}
+
+.final h2{
+  color:var(--bg);
+  text-shadow:none
+}
+
+.final .lead{
+  margin:0 auto 32px;
+  color:var(--bg)
+}
+
+.final .btn{
+  background:var(--bg);
+  color:var(--lime);
+  border-color:var(--bg);
+  box-shadow:6px 6px 0 var(--lime-dim)
+}
+
+footer{
+  background:var(--bg);
+  color:var(--muted);
+  padding:30px 0;
+  font-size:15px
+}
+
+footer .wrap{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  gap:12px 24px
+}
+
+footer a{
+  margin-right:20px;
+  color:var(--text)
+}
+
+footer a:hover{
+  color:var(--lime)
+}
+
+@media(max-width:860px){
+  .wallet .cols{
+    grid-template-columns:1fr;
+    gap:36px
   }
 
-  25% {
-
-    transform:
-      translate3d(30px, -30px, 0)
-      rotate(8deg);
-
+  .gallery{
+    grid-template-columns:repeat(2,1fr)
   }
 
-  50% {
-
-    transform:
-      translate3d(-20px, -80px, 0)
-      rotate(-5deg);
-
+  nav{
+    display:none
   }
 
-  75% {
+  .grill .row img:nth-child(n+5){
+    display:none
+  }
+}
 
-    transform:
-      translate3d(35px, -20px, 0)
-      rotate(12deg);
-
+@media(max-width:520px){
+  body{
+    font-size:17px
   }
 
-  100% {
-
-    transform:
-      translate3d(0, 40px, 0)
-      rotate(-12deg);
-
+  .dish{
+    flex-wrap:wrap
   }
 
-}
-
-
-/* Subtle scale */
-
-@keyframes steakPulse {
-
-  from {
-
-    scale: .85;
-
+  .dish .dots{
+    display:none
   }
 
-  to {
-
-    scale: 1.15;
-
+  .dish .name{
+    white-space:normal;
+    font-size:21px
   }
 
-}
-
-
-/* =========================================================
-   CONTENT LAYER
-========================================================= */
-
-header,
-main,
-footer {
-
-  position: relative;
-
-  z-index: 1;
-
-}
-
-
-/* =========================================================
-   CONTAINER
-========================================================= */
-
-.wrap {
-
-  max-width: 1120px;
-
-  margin: 0 auto;
-
-  padding: 0 24px;
-
-}
-
-
-/* =========================================================
-   HEADER
-========================================================= */
-
-header {
-
-  padding: 18px 0;
-
-  border-bottom: 2px solid var(--lime-dim);
-
-  background:
-    rgba(11, 12, 6, .88);
-
-  backdrop-filter: blur(8px);
-
-}
-
-
-header .wrap {
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-  gap: 16px;
-
-}
-
-
-.logo {
-
-  font-family: var(--display);
-
-  font-size: 22px;
-
-  color: var(--lime);
-
-  text-decoration: none;
-
-  text-shadow:
-    0 0 18px rgba(204,255,0,.35);
-
-}
-
-
-nav {
-
-  display: flex;
-
-  gap: 24px;
-
-  font-weight: 700;
-
-  font-size: 16px;
-
-}
-
-
-nav a {
-
-  text-decoration: none;
-
-  color: var(--text);
-
-  transition:
-    color .2s ease;
-
-}
-
-
-nav a:hover {
-
-  color: var(--lime);
-
-}
-
-
-/* =========================================================
-   BUTTONS
-========================================================= */
-
-.btn {
-
-  display: inline-block;
-
-  font:
-    700 18px var(--body);
-
-  padding: 15px 28px;
-
-  border: 3px solid var(--lime);
-
-  background: var(--lime);
-
-  color: var(--bg);
-
-  text-decoration: none;
-
-  box-shadow:
-    6px 6px 0 var(--lime-dim);
-
-  transition:
-    transform .15s ease,
-    box-shadow .15s ease;
-
-}
-
-
-.btn:hover {
-
-  transform:
-    translate(3px, 3px);
-
-  box-shadow:
-    3px 3px 0 var(--lime-dim);
-
-}
-
-
-.btn:active {
-
-  transform:
-    translate(5px, 5px);
-
-  box-shadow:
-    1px 1px 0 var(--lime-dim);
-
-}
-
-
-.btn.alt {
-
-  background: transparent;
-
-  color: var(--lime);
-
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero {
-
-  overflow: hidden;
-
-}
-
-
-.hero .banner {
-
-  width: 100%;
-
-  max-width: 1500px;
-
-  margin: 0 auto;
-
-  image-rendering: pixelated;
-
-}
-
-
-.hero .copy {
-
-  text-align: center;
-
-  padding:
-    8px 24px 64px;
-
-}
-
-
-.hero .sub {
-
-  max-width: 600px;
-
-  margin:
-    0 auto 32px;
-
-  font-size: 21px;
-
-}
-
-
-.hero .cta {
-
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 20px;
-
-  justify-content: center;
-
-}
-
-
-/* =========================================================
-   GRILL
-========================================================= */
-
-.grill {
-
-  border-top:
-    3px solid var(--lime);
-
-  background:
-    rgba(19,21,10,.8);
-
-  padding:
-    34px 0 0;
-
-}
-
-
-.grill .row {
-
-  display: flex;
-
-  gap: 18px;
-
-  justify-content: center;
-
-  align-items: flex-end;
-
-  padding:
-    0 24px;
-
-}
-
-
-.grill .row img {
-
-  width:
-    clamp(88px,15vw,190px);
-
-  image-rendering: pixelated;
-
-  border:
-    3px solid var(--lime);
-
-  background:
-    var(--lime);
-
-  transition:
-    transform .25s ease,
-    box-shadow .25s ease;
-
-}
-
-
-.grill .row img:nth-child(even) {
-
-  transform:
-    translateY(-22px);
-
-}
-
-
-.grill .row img:hover {
-
-  transform:
-    translateY(-8px)
-    scale(1.04);
-
-  box-shadow:
-    0 0 25px rgba(204,255,0,.25);
-
-}
-
-
-.grill .row img:nth-child(even):hover {
-
-  transform:
-    translateY(-30px)
-    scale(1.04);
-
-}
-
-
-.grill .bars {
-
-  height: 26px;
-
-  margin-top: 26px;
-
-  background:
-    repeating-linear-gradient(
-      90deg,
-      var(--lime-dim) 0 14px,
-      var(--bg) 14px 34px
-    );
-
-}
-
-
-/* =========================================================
-   SECTIONS
-========================================================= */
-
-section {
-
-  padding:
-    88px 0;
-
-}
-
-
-h2 {
-
-  font-family: var(--display);
-
-  font-weight: 400;
-
-  font-size:
-    clamp(34px,6vw,64px);
-
-  line-height: 1;
-
-  margin-bottom: 20px;
-
-  color: var(--lime);
-
-  text-shadow:
-    0 0 24px rgba(204,255,0,.25);
-
-}
-
-
-.lead {
-
-  max-width: 640px;
-
-  font-size: 20px;
-
-  color: var(--text);
-
-}
-
-
-/* =========================================================
-   UTILITY MENU
-========================================================= */
-
-.menu {
-
-  position: relative;
-
-  background:
-    rgba(19,21,10,.92);
-
-  border:
-    3px solid var(--lime);
-
-  margin-top: 44px;
-
-  padding:
-    44px clamp(22px,5vw,64px);
-
-  box-shadow:
-    10px 10px 0 var(--lime-dim);
-
-}
-
-
-.menu::before {
-
-  content: "";
-
-  position: absolute;
-
-  inset: 10px;
-
-  border:
-    2px dashed var(--lime-dim);
-
-  pointer-events: none;
-
-}
-
-
-.menu h3 {
-
-  position: relative;
-
-  font-family: var(--display);
-
-  font-weight: 400;
-
-  font-size: 30px;
-
-  text-align: center;
-
-  margin-bottom: 6px;
-
-  color: var(--lime);
-
-}
-
-
-.menu .note {
-
-  position: relative;
-
-  text-align: center;
-
-  font-size: 16px;
-
-  margin-bottom: 34px;
-
-  color: var(--muted);
-
-}
-
-
-.dish {
-
-  display: flex;
-
-  align-items: baseline;
-
-  gap: 12px;
-
-  margin-bottom: 6px;
-
-}
-
-
-.dish .name {
-
-  font-family: var(--display);
-
-  font-size: 24px;
-
-  white-space: nowrap;
-
-  color: var(--text);
-
-}
-
-
-.dish .dots {
-
-  flex: 1;
-
-  border-bottom:
-    3px dotted var(--lime-dim);
-
-  min-width: 20px;
-
-  transform:
-    translateY(-5px);
-
-}
-
-
-.dish .price {
-
-  font-weight: 700;
-
-  color: var(--lime);
-
-  white-space: nowrap;
-
-}
-
-
-.dish-desc {
-
-  max-width: 620px;
-
-  margin-bottom: 30px;
-
-  font-size: 17px;
-
-  color: var(--muted);
-
-}
-
-
-/* =========================================================
-   WALLET
-========================================================= */
-
-.wallet {
-
-  background:
-    rgba(19,21,10,.82);
-
-  border-top:
-    3px solid var(--lime-dim);
-
-  border-bottom:
-    3px solid var(--lime-dim);
-
-}
-
-
-.wallet .cols {
-
-  display: grid;
-
-  grid-template-columns:
-    1.1fr .9fr;
-
-  gap: 56px;
-
-  align-items: center;
-
-}
-
-
-.wallet p {
-
-  margin-bottom: 16px;
-
-  max-width: 520px;
-
-}
-
-
-.wallet .card {
-
-  border:
-    3px solid var(--lime);
-
-  padding: 28px;
-
-  font-size: 17px;
-
-  background:
-    rgba(11,12,6,.92);
-
-}
-
-
-.wallet .card div {
-
-  display: flex;
-
-  justify-content: space-between;
-
-  gap: 20px;
-
-  padding: 12px 0;
-
-  border-bottom:
-    2px dotted var(--lime-dim);
-
-}
-
-
-.wallet .card div:last-child {
-
-  border: 0;
-
-}
-
-
-.wallet .card b {
-
-  color: var(--lime);
-
-}
-
-
-/* =========================================================
-   GALLERY
-========================================================= */
-
-.gallery {
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
-  gap: 22px;
-
-  margin-top: 44px;
-
-}
-
-
-.cut {
-
-  position: relative;
-
-  overflow: hidden;
-
-  background:
-    rgba(19,21,10,.94);
-
-  border:
-    3px solid var(--lime-dim);
-
-  cursor: pointer;
-
-  transform:
-    translateZ(0);
-
-  transition:
-    transform .25s cubic-bezier(.2,.8,.2,1),
-    border-color .25s ease,
-    box-shadow .25s ease;
-
-}
-
-
-.cut::after {
-
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  border:
-    3px solid transparent;
-
-  pointer-events: none;
-
-  transition:
-    border-color .2s ease;
-
-}
-
-
-.cut:hover {
-
-  transform:
-    translateY(-8px)
-    scale(1.02);
-
-  border-color:
-    var(--lime);
-
-  box-shadow:
-    0 12px 30px rgba(0,0,0,.35);
-
-}
-
-
-.cut:active {
-
-  transform:
-    scale(.96);
-
-}
-
-
-/* =========================================================
-   NFT CLICK ANIMATION
-========================================================= */
-
-.cut.clicked {
-
-  animation:
-    nftClick
-    .65s
-    cubic-bezier(.2,.8,.2,1);
-
-  border-color:
-    var(--lime);
-
-  box-shadow:
-    0 0 0 4px
-      rgba(204,255,0,.08),
-    0 0 35px
-      rgba(204,255,0,.18);
-
-}
-
-
-.cut.clicked::after {
-
-  border-color:
-    var(--lime);
-
-  animation:
-    clickRing
-    .65s
-    ease-out;
-
-}
-
-
-.cut.clicked img {
-
-  animation:
-    steakPop
-    .65s
-    cubic-bezier(.2,.8,.2,1);
-
-}
-
-
-@keyframes nftClick {
-
-  0% {
-
-    transform:
-      scale(1);
-
+  .grill .row img:nth-child(n+4){
+    display:none
   }
-
-  25% {
-
-    transform:
-      scale(.94)
-      rotate(-2deg);
-
-  }
-
-  55% {
-
-    transform:
-      scale(1.06)
-      rotate(2deg);
-
-  }
-
-  80% {
-
-    transform:
-      scale(.99)
-      rotate(-.5deg);
-
-  }
-
-  100% {
-
-    transform:
-      scale(1);
-
-  }
-
 }
 
-
-@keyframes steakPop {
-
-  0% {
-
-    transform:
-      scale(1)
-      rotate(0);
-
+@media(prefers-reduced-motion:reduce){
+  *{
+    transition:none!important;
+    scroll-behavior:auto!important
   }
-
-  35% {
-
-    transform:
-      scale(1.12)
-      rotate(-3deg);
-
-  }
-
-  65% {
-
-    transform:
-      scale(1.06)
-      rotate(3deg);
-
-  }
-
-  100% {
-
-    transform:
-      scale(1)
-      rotate(0);
-
-  }
-
 }
-
-
-@keyframes clickRing {
-
-  0% {
-
-    opacity: 1;
-
-    transform:
-      scale(.92);
-
-  }
-
-  100% {
-
-    opacity: 0;
-
-    transform:
-      scale(1.08);
-
-  }
-
-}
-
-
-/* =========================================================
-   GALLERY IMAGE
-========================================================= */
-
-.cut .pic {
-
-  aspect-ratio: 1;
-
-  background:
-    var(--lime-dim);
-
-  display: grid;
-
-  place-items: center;
-
-  font-family:
-    var(--display);
-
-  font-size: 44px;
-
-  color:
-    var(--lime);
-
-  overflow: hidden;
-
-}
-
-
-.cut img {
-
-  width: 100%;
-
-  height: 100%;
-
-  object-fit: cover;
-
-  image-rendering: pixelated;
-
-  transition:
-    transform .3s ease;
-
-}
-
-
-.cut:hover img {
-
-  transform:
-    scale(1.035);
-
-}
-
-
-.cut p {
-
-  position: relative;
-
-  z-index: 2;
-
-  padding:
-    12px 14px;
-
-  font-weight: 700;
-
-  border-top:
-    3px solid var(--lime-dim);
-
-  display: flex;
-
-  justify-content: space-between;
-
-  gap: 10px;
-
-}
-
-
-.cut p span:last-child {
-
-  color:
-    var(--lime);
-
-}
-
-
-/* =========================================================
-   FINAL CTA
-========================================================= */
-
-.final {
-
-  background:
-    var(--lime);
-
-  color:
-    var(--bg);
-
-  text-align:
-    center;
-
-}
-
-
-.final h2 {
-
-  color:
-    var(--bg);
-
-  text-shadow:
-    none;
-
-}
-
-
-.final .lead {
-
-  margin:
-    0 auto 32px;
-
-  color:
-    var(--bg);
-
-}
-
-
-.final .btn {
-
-  background:
-    var(--bg);
-
-  color:
-    var(--lime);
-
-  border-color:
-    var(--bg);
-
-  box-shadow:
-    6px 6px 0 var(--lime-dim);
-
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer {
-
-  background:
-    var(--bg);
-
-  color:
-    var(--muted);
-
-  padding:
-    30px 0;
-
-  font-size:
-    15px;
-
-}
-
-
-footer .wrap {
-
-  display: flex;
-
-  flex-wrap: wrap;
-
-  justify-content: space-between;
-
-  gap:
-    12px 24px;
-
-}
-
-
-footer a {
-
-  margin-right:
-    20px;
-
-  color:
-    var(--text);
-
-}
-
-
-footer a:hover {
-
-  color:
-    var(--lime);
-
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media(max-width:860px) {
-
-  .wallet .cols {
-
-    grid-template-columns:
-      1fr;
-
-    gap:
-      36px;
-
-  }
-
-
-  .gallery {
-
-    grid-template-columns:
-      repeat(2,1fr);
-
-  }
-
-
-  nav {
-
-    display:
-      none;
-
-  }
-
-
-  .grill .row img:nth-child(n+5) {
-
-    display:
-      none;
-
-  }
-
-}
-
-
-@media(max-width:520px) {
-
-  body {
-
-    font-size:
-      17px;
-
-  }
-
-
-  .dish {
-
-    flex-wrap:
-      wrap;
-
-  }
-
-
-  .dish .dots {
-
-    display:
-      none;
-
-  }
-
-
-  .dish .name {
-
-    white-space:
-      normal;
-
-    font-size:
-      21px;
-
-  }
-
-
-  .grill .row img:nth-child(n+4) {
-
-    display:
-      none;
-
-  }
-
-
-  .steak-background {
-
-    opacity:
-      .055;
-
-  }
-
-
-  .steak-background span {
-
-    font-size:
-      38px;
-
-  }
-
-
-  .gallery {
-
-    gap:
-      14px;
-
-  }
-
-
-  .cut p {
-
-    font-size:
-      14px;
-
-  }
-
-}
-
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
-@media(prefers-reduced-motion: reduce) {
-
-  html {
-
-    scroll-behavior:
-      auto;
-
-  }
-
-
-  .steak-background span {
-
-    animation:
-      none;
-
-  }
-
-
-  .cut,
-  .cut.clicked,
-  .cut.clicked img {
-
-    animation:
-      none;
-
-    transition:
-      none;
-
-  }
-
-}
-
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- =======================================================
-     ANIMATED STEAK BACKGROUND
-======================================================= -->
-
-<div
-  class="steak-background"
-  aria-hidden="true"
->
-
-  <span>🥩</span>
-  <span>🥩</span>
-  <span>🥩</span>
-  <span>🥩</span>
-  <span>🥩</span>
-  <span>🥩</span>
-  <span>🥩</span>
-  <span>🥩</span>
-  <span>🥩</span>
-  <span>🥩</span>
-  <span>🥩</span>
-  <span>🥩</span>
-
-</div>
-
-
-
-<!-- =======================================================
-     HEADER
-======================================================= -->
-
 <header>
-
   <div class="wrap">
+    <a class="logo" href="#top">Steakhood</a>
 
-    <a
-      class="logo"
-      href="#top"
-    >
-      Steakhood
-    </a>
-
-
-    <nav aria-label="Main navigation">
-
-      <a href="#menu">
-        Utility
-      </a>
-
-      <a href="#wallet">
-        Wallet
-      </a>
-
-      <a href="#cuts">
-        The cuts
-      </a>
-
-      <a href="#mint">
-        Mint
-      </a>
-
+    <nav aria-label="Main">
+      <a href="#menu">Utility</a>
+      <a href="#wallet">Wallet</a>
+      <a href="#cuts">The cuts</a>
+      <a href="#mint">Mint</a>
     </nav>
-
   </div>
-
 </header>
-
-
 
 <main id="top">
 
+  <section class="hero" style="padding:0">
 
-<!-- =======================================================
-     HERO
-======================================================= -->
+    <h1 class="sr">Steakhood</h1>
 
-<section
-  class="hero"
-  style="padding:0"
->
+    <img
+      class="banner"
+      src="assets/banner.png"
+      alt="Steakhood"
+      width="1500"
+      height="500"
+    >
 
-  <h1 class="sr">
-    Steakhood
-  </h1>
+    <div class="copy">
+      <p class="sub">
+        100 steak NFTs built for Robinhood Chain, with utility in every single token.
+      </p>
 
+      <div class="cta">
+        <a class="btn" href="#mint" data-link="mint">
+          Mint a Steakhood
+        </a>
 
-  <img
-    class="banner"
-    src="assets/steakhood_banner.png"
-    alt="Steakhood"
-    width="1500"
-    height="500"
-  >
+        <a class="btn alt" href="#" data-link="opensea">
+          View on OpenSea
+        </a>
+      </div>
+    </div>
 
+    <div class="grill" aria-hidden="true">
+      <div class="row" id="grillRow"></div>
+      <div class="bars"></div>
+    </div>
 
-  <div class="copy">
-
-    <p class="sub">
-
-      100 steak NFTs built for Robinhood Chain,
-      with utility in every single token.
-
-    </p>
-
-
-    <div class="cta">
-
-      <a
-        class="btn"
-        href="#mint"
-        data-link="mint"
-      >
-        Mint a Steakhood
-      </a>
+  </section>
 
 
-      <a
-        class="btn alt"
-        href="#"
-        data-link="opensea"
-      >
-        View on OpenSea
+  <section id="menu">
+
+    <div class="wrap">
+
+      <h2>Utility on the menu</h2>
+
+      <p class="lead">
+        Every Steakhood comes with the full menu. No tiers, no sides to unlock.
+      </p>
+
+      <div class="menu">
+
+        <h3>The Steakhood Menu</h3>
+
+        <p class="note">
+          Served to every holder, 100 seats at the table
+        </p>
+
+
+        <div class="dish">
+          <span class="name">Holder rewards</span>
+          <span class="dots"></span>
+          <span class="price">included</span>
+        </div>
+
+        <p class="dish-desc">
+          Each token is backed by a reward pool for holders of the collection.
+        </p>
+
+
+        <div class="dish">
+          <span class="name">Staking</span>
+          <span class="dots"></span>
+          <span class="price">included</span>
+        </div>
+
+        <p class="dish-desc">
+          Stake your Steakhood to earn while you hold it.
+        </p>
+
+
+        <div class="dish">
+          <span class="name">Tokenized stock perks</span>
+          <span class="dots"></span>
+          <span class="price">included</span>
+        </div>
+
+        <p class="dish-desc">
+          Holder perks that come in the form of tokenized stocks on Robinhood Chain.
+        </p>
+
+
+        <div class="dish">
+          <span class="name">Community-only access</span>
+          <span class="dots"></span>
+          <span class="price">included</span>
+        </div>
+
+        <p class="dish-desc" style="margin-bottom:0">
+          A private room for holders: channels, drops and early information.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section id="wallet" class="wallet">
+
+    <div class="wrap cols">
+
+      <div>
+
+        <h2>Every steak is a wallet</h2>
+
+        <p>
+          Each Steakhood is designed as a token-bound wallet.
+          The wallet belongs to the token, so whatever sits inside it
+          moves with the steak when you sell or send it.
+        </p>
+
+        <p>
+          Rewards, perks and assets stay attached to the NFT,
+          not to a single address.
+        </p>
+
+      </div>
+
+
+      <div class="card" aria-label="What a Steakhood holds">
+
+        <div>
+          <span>Collection size</span>
+          <b>100</b>
+        </div>
+
+        <div>
+          <span>Network</span>
+          <b>Robinhood Chain</b>
+        </div>
+
+        <div>
+          <span>Token standard</span>
+          <b>ERC-721</b>
+        </div>
+
+        <div>
+          <span>Wallet</span>
+          <b>Token-bound</b>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section id="cuts">
+
+    <div class="wrap">
+
+      <h2>Today's cuts</h2>
+
+      <p class="lead">
+        A taste of the collection. Hundreds of ways to order a steak,
+        but only 100 plates.
+      </p>
+
+      <div class="gallery" id="gallery"></div>
+
+    </div>
+
+  </section>
+
+
+  <section id="mint" class="final">
+
+    <div class="wrap">
+
+      <h2>Grab a seat</h2>
+
+      <p class="lead">
+        Mint your Steakhood and the whole menu is yours.
+      </p>
+
+      <a class="btn" href="#" data-link="mint">
+        Mint now
       </a>
 
     </div>
 
-  </div>
+  </section>
+
+</main>
 
 
-
-  <!-- =====================================================
-       GRILL
-  ====================================================== -->
-
-  <div
-    class="grill"
-    aria-hidden="true"
-  >
-
-    <div
-      class="row"
-      id="grillRow"
-    ></div>
-
-    <div class="bars"></div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =======================================================
-     UTILITY
-======================================================= -->
-
-<section id="menu">
+<footer>
 
   <div class="wrap">
 
-    <h2>
-      Utility on the menu
-    </h2>
+    <div>
+
+      <a href="#" data-link="opensea">
+        OpenSea
+      </a>
+
+      <a href="#" data-link="x">
+        X
+      </a>
+
+      <a href="#" data-link="discord">
+        Discord
+      </a>
+
+    </div>
+
+    <div>
+      Steakhood, built for Robinhood Chain.
+    </div>
+
+  </div>
+
+</footer>
 
 
-    <p class="lead">
+<script>
 
-      Every Steakhood comes with the full menu.
-      No tiers, no sides to unlock.
+/* ---- Edit these before deploying ---- */
 
-    </p>
+const CONFIG = {
 
+  imageCid:
+    "bafybeiabwc6xisy774msvs75cjv2brwq3md3ohnpi25ns5lsiniefo6yuy",
 
-    <div class="menu">
+  gateway:
+    "https://ipfs.io/ipfs/",
 
-      <h3>
-        The Steakhood Menu
-      </h3>
+  localDir:
+    "images/",
 
+  links: {
 
-      <p class="note">
+    mint: "",
 
-        Served to every holder, 100 seats at the table
+    opensea:
+      "https://opensea.io/collection/steak-jpeg",
 
-      </p>
+    x:
+      "https://x.com/steakhoodnft",
 
+    discord:
+      ""
 
-      <div class="dish">
+  },
 
-        <span class="name">
-          Holder rewards
-        </span>
+  hero:
+    [60, 53, 33, 91, 66, 90],
 
-        <span class="dots"></span>
+  gallery:
+    [1, 50, 60, 33, 66, 90, 91, 53]
 
-        <span class="price">
-          included
-        </span>
+};
 
-      </div>
-
-
-      <p class="dish-desc">
-
-        Each token is backed by a reward pool
-        for holders of the collection.
-
-      </p>
+/* ------------------------------------- */
 
 
-
-      <div class="dish">
-
-        <span class="name">
-          Staking
-        </span>
-
-        <span class="dots"></span>
-
-        <span class="price">
-          included
-        </span>
-
-      </div>
+const local = n =>
+  CONFIG.localDir + n + ".png";
 
 
-      <p class="dish-desc">
-
-        Stake your Steakhood to earn while you hold it.
-
-      </p>
+const remote = n =>
+  CONFIG.gateway + CONFIG.imageCid + "/" + n + ".png";
 
 
+/*
+  Try the local repo image first.
+  If it does not exist, use the IPFS copy.
+*/
 
-      <div class="dish">
+function load(i, n){
 
-        <span class="name">
-          Tokenized stock perks
-        </span>
+  i.onerror = () => {
 
-        <span class="dots"></span>
+    i.onerror = null;
 
-        <span class="price">
-          included
-        </span>
+    i.src = remote(n);
 
-      </div>
+  };
 
+  i.src = local(n);
 
-      <p class="dish-desc">
-
-        Holder perks that come in the form of
-        tokenized stocks on Robinhood Chain.
-
-      </p>
+}
 
 
+/*
+  Wire up links.
+  Unset links remain disabled.
+*/
 
-      <div class="dish">
+document
+  .querySelectorAll("[data-link]")
+  .forEach(a => {
 
-        <span class="name">
-          Community-only access
-        </span>
+    const url =
+      CONFIG.links[a.dataset.link];
 
-        <span class="dots"></span>
+    if(url){
 
-        <span class="price">
-          included
-        </span>
+      a.href = url;
+      a.target = "_blank";
+      a.rel = "noopener";
 
-      </div>
+    }else{
+
+      a.addEventListener(
+        "click",
+        e => e.preventDefault()
+      );
+
+    }
+
+  });
 
 
-      <p
-        class="dish-desc"
-        style="margin-bottom:0"
-      >
+/*
+  Hero images
+*/
 
-        A privat
+const row =
+  document.getElementById("grillRow");
+
+
+CONFIG.hero.forEach(n => {
+
+  const i =
+    new Image();
+
+  i.alt = "";
+  i.loading = "eager";
+
+  load(i, n);
+
+  row.appendChild(i);
+
+});
+
+
+/*
+  Gallery
+*/
+
+const g =
+  document.getElementById("gallery");
+
+
+CONFIG.gallery.forEach(n => {
+
+  const c =
+    document.createElement("article");
+
+  c.className = "cut";
+
+  c.innerHTML =
+    '<div class="pic" aria-hidden="true">#' +
+    n +
+    '</div>' +
+
+    '<p>Steakhood #' +
+    n +
+    '<span>1 of 1</span></p>';
+
+
+  const i =
+    new Image();
+
+  i.alt =
+    "Steakhood #" + n;
+
+
+  load(i, n);
+
+
+  i.onload = () => {
+
+    const pic =
+      c.querySelector(".pic");
+
+    pic.textContent = "";
+
+    pic.appendChild(i);
+
+  };
+
+
+  g.appendChild(c);
+
+});
+
+</script>
+
+</body>
+  </html>
