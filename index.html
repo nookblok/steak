@@ -3,7 +3,7 @@
 
 <head>
 
-<meta charset="utf-8">
+<meta charset="UTF-8">
 
 <meta
   name="viewport"
@@ -15,13 +15,11 @@
   content="#0b0c06"
 >
 
-<title>
-  Steakhood | 100 Steak NFTs on Robinhood Chain
-</title>
+<title>Steakhood | 100 Steak NFTs</title>
 
 <meta
   name="description"
-  content="Steakhood is a collection of 100 steak NFTs built for Robinhood Chain."
+  content="Steakhood is a collection of 100 steak NFTs on Robinhood Chain."
 >
 
 <meta
@@ -63,7 +61,7 @@
 <style>
 
 /* =========================================================
-   ROOT
+   VARIABLES
 ========================================================= */
 
 :root {
@@ -153,14 +151,6 @@ a {
 }
 
 
-button,
-a {
-
-  -webkit-tap-highlight-color: transparent;
-
-}
-
-
 :focus-visible {
 
   outline: 3px solid var(--lime);
@@ -171,7 +161,7 @@ a {
 
 
 /* =========================================================
-   ANIMATED STEAK BACKGROUND
+   BACKGROUND STEAK ANIMATION
 ========================================================= */
 
 .steak-background {
@@ -186,7 +176,7 @@ a {
 
   z-index: 0;
 
-  opacity: .075;
+  opacity: .07;
 
 }
 
@@ -199,9 +189,9 @@ a {
 
   font-size: clamp(35px, 6vw, 85px);
 
-  filter: grayscale(1);
-
   user-select: none;
+
+  filter: grayscale(1);
 
   will-change: transform;
 
@@ -212,141 +202,82 @@ a {
 }
 
 
-/* Steak positions */
+/* positions */
 
 .steak-background span:nth-child(1) {
-
   left: 5%;
-
-  top: 15%;
-
+  top: 12%;
   animation-duration: 18s, 5s;
-
 }
-
 
 .steak-background span:nth-child(2) {
-
   left: 18%;
-
-  top: 70%;
-
+  top: 68%;
   animation-duration: 23s, 7s;
-
 }
-
 
 .steak-background span:nth-child(3) {
-
   left: 32%;
-
-  top: 25%;
-
+  top: 24%;
   animation-duration: 20s, 6s;
-
 }
-
 
 .steak-background span:nth-child(4) {
-
   left: 48%;
-
   top: 82%;
-
   animation-duration: 26s, 8s;
-
 }
-
 
 .steak-background span:nth-child(5) {
-
   left: 63%;
-
-  top: 18%;
-
+  top: 17%;
   animation-duration: 21s, 5s;
-
 }
-
 
 .steak-background span:nth-child(6) {
-
   left: 78%;
-
-  top: 65%;
-
+  top: 63%;
   animation-duration: 24s, 7s;
-
 }
-
 
 .steak-background span:nth-child(7) {
-
   left: 91%;
-
   top: 30%;
-
   animation-duration: 19s, 6s;
-
 }
-
 
 .steak-background span:nth-child(8) {
-
   left: 12%;
-
   top: 45%;
-
   animation-duration: 27s, 9s;
-
 }
-
 
 .steak-background span:nth-child(9) {
-
   left: 40%;
-
   top: 55%;
-
   animation-duration: 22s, 6s;
-
 }
-
 
 .steak-background span:nth-child(10) {
-
   left: 72%;
-
   top: 42%;
-
   animation-duration: 25s, 8s;
-
 }
-
 
 .steak-background span:nth-child(11) {
-
   left: 85%;
-
   top: 80%;
-
   animation-duration: 20s, 5s;
-
 }
-
 
 .steak-background span:nth-child(12) {
-
   left: 3%;
-
   top: 88%;
-
   animation-duration: 28s, 9s;
-
 }
 
 
-/* Floating movement */
+/* floating */
 
 @keyframes steakFloat {
 
@@ -393,7 +324,7 @@ a {
 }
 
 
-/* Subtle scale */
+/* pulse */
 
 @keyframes steakPulse {
 
@@ -450,12 +381,14 @@ header {
 
   padding: 18px 0;
 
-  border-bottom: 2px solid var(--lime-dim);
+  border-bottom:
+    2px solid var(--lime-dim);
 
   background:
-    rgba(11, 12, 6, .88);
+    rgba(11,12,6,.9);
 
-  backdrop-filter: blur(8px);
+  backdrop-filter:
+    blur(8px);
 
 }
 
@@ -504,9 +437,9 @@ nav {
 
 nav a {
 
-  text-decoration: none;
-
   color: var(--text);
+
+  text-decoration: none;
 
   transition:
     color .2s ease;
@@ -522,25 +455,30 @@ nav a:hover {
 
 
 /* =========================================================
-   BUTTONS
+   BUTTON
 ========================================================= */
 
 .btn {
 
   display: inline-block;
 
+  padding:
+    15px 28px;
+
+  border:
+    3px solid var(--lime);
+
+  background:
+    var(--lime);
+
+  color:
+    var(--bg);
+
   font:
     700 18px var(--body);
 
-  padding: 15px 28px;
-
-  border: 3px solid var(--lime);
-
-  background: var(--lime);
-
-  color: var(--bg);
-
-  text-decoration: none;
+  text-decoration:
+    none;
 
   box-shadow:
     6px 6px 0 var(--lime-dim);
@@ -555,7 +493,7 @@ nav a:hover {
 .btn:hover {
 
   transform:
-    translate(3px, 3px);
+    translate(3px,3px);
 
   box-shadow:
     3px 3px 0 var(--lime-dim);
@@ -566,7 +504,7 @@ nav a:hover {
 .btn:active {
 
   transform:
-    translate(5px, 5px);
+    translate(5px,5px);
 
   box-shadow:
     1px 1px 0 var(--lime-dim);
@@ -576,9 +514,11 @@ nav a:hover {
 
 .btn.alt {
 
-  background: transparent;
+  background:
+    transparent;
 
-  color: var(--lime);
+  color:
+    var(--lime);
 
 }
 
@@ -609,35 +549,42 @@ nav a:hover {
 
 .hero .copy {
 
-  text-align: center;
-
   padding:
-    8px 24px 64px;
+    12px 24px 64px;
+
+  text-align:
+    center;
 
 }
 
 
 .hero .sub {
 
-  max-width: 600px;
+  max-width:
+    650px;
 
   margin:
     0 auto 32px;
 
-  font-size: 21px;
+  font-size:
+    21px;
 
 }
 
 
 .hero .cta {
 
-  display: flex;
+  display:
+    flex;
 
-  flex-wrap: wrap;
+  flex-wrap:
+    wrap;
 
-  gap: 20px;
+  justify-content:
+    center;
 
-  justify-content: center;
+  gap:
+    20px;
 
 }
 
@@ -648,27 +595,31 @@ nav a:hover {
 
 .grill {
 
-  border-top:
-    3px solid var(--lime);
+  padding:
+    34px 0 0;
 
   background:
     rgba(19,21,10,.8);
 
-  padding:
-    34px 0 0;
+  border-top:
+    3px solid var(--lime);
 
 }
 
 
 .grill .row {
 
-  display: flex;
+  display:
+    flex;
 
-  gap: 18px;
+  justify-content:
+    center;
 
-  justify-content: center;
+  align-items:
+    flex-end;
 
-  align-items: flex-end;
+  gap:
+    18px;
 
   padding:
     0 24px;
@@ -681,13 +632,14 @@ nav a:hover {
   width:
     clamp(88px,15vw,190px);
 
-  image-rendering: pixelated;
-
   border:
     3px solid var(--lime);
 
   background:
     var(--lime);
+
+  image-rendering:
+    pixelated;
 
   transition:
     transform .25s ease,
@@ -711,7 +663,8 @@ nav a:hover {
     scale(1.04);
 
   box-shadow:
-    0 0 25px rgba(204,255,0,.25);
+    0 0 25px
+    rgba(204,255,0,.25);
 
 }
 
@@ -727,9 +680,11 @@ nav a:hover {
 
 .grill .bars {
 
-  height: 26px;
+  height:
+    26px;
 
-  margin-top: 26px;
+  margin-top:
+    26px;
 
   background:
     repeating-linear-gradient(
@@ -755,32 +710,38 @@ section {
 
 h2 {
 
-  font-family: var(--display);
+  margin-bottom:
+    20px;
 
-  font-weight: 400;
+  font-family:
+    var(--display);
 
   font-size:
     clamp(34px,6vw,64px);
 
-  line-height: 1;
+  font-weight:
+    400;
 
-  margin-bottom: 20px;
+  line-height:
+    1;
 
-  color: var(--lime);
+  color:
+    var(--lime);
 
   text-shadow:
-    0 0 24px rgba(204,255,0,.25);
+    0 0 24px
+    rgba(204,255,0,.25);
 
 }
 
 
 .lead {
 
-  max-width: 640px;
+  max-width:
+    640px;
 
-  font-size: 20px;
-
-  color: var(--text);
+  font-size:
+    20px;
 
 }
 
@@ -791,18 +752,20 @@ h2 {
 
 .menu {
 
-  position: relative;
+  position:
+    relative;
 
-  background:
-    rgba(19,21,10,.92);
-
-  border:
-    3px solid var(--lime);
-
-  margin-top: 44px;
+  margin-top:
+    44px;
 
   padding:
     44px clamp(22px,5vw,64px);
+
+  background:
+    rgba(19,21,10,.94);
+
+  border:
+    3px solid var(--lime);
 
   box-shadow:
     10px 10px 0 var(--lime-dim);
@@ -814,86 +777,111 @@ h2 {
 
   content: "";
 
-  position: absolute;
+  position:
+    absolute;
 
-  inset: 10px;
+  inset:
+    10px;
 
   border:
     2px dashed var(--lime-dim);
 
-  pointer-events: none;
+  pointer-events:
+    none;
 
 }
 
 
 .menu h3 {
 
-  position: relative;
+  position:
+    relative;
 
-  font-family: var(--display);
+  margin-bottom:
+    6px;
 
-  font-weight: 400;
+  color:
+    var(--lime);
 
-  font-size: 30px;
+  font-family:
+    var(--display);
 
-  text-align: center;
+  font-size:
+    30px;
 
-  margin-bottom: 6px;
+  font-weight:
+    400;
 
-  color: var(--lime);
+  text-align:
+    center;
 
 }
 
 
 .menu .note {
 
-  position: relative;
+  position:
+    relative;
 
-  text-align: center;
+  margin-bottom:
+    34px;
 
-  font-size: 16px;
+  color:
+    var(--muted);
 
-  margin-bottom: 34px;
+  font-size:
+    16px;
 
-  color: var(--muted);
+  text-align:
+    center;
 
 }
 
 
 .dish {
 
-  display: flex;
+  display:
+    flex;
 
-  align-items: baseline;
+  align-items:
+    baseline;
 
-  gap: 12px;
+  gap:
+    12px;
 
-  margin-bottom: 6px;
+  margin-bottom:
+    6px;
 
 }
 
 
 .dish .name {
 
-  font-family: var(--display);
+  color:
+    var(--text);
 
-  font-size: 24px;
+  font-family:
+    var(--display);
 
-  white-space: nowrap;
+  font-size:
+    24px;
 
-  color: var(--text);
+  white-space:
+    nowrap;
 
 }
 
 
 .dish .dots {
 
-  flex: 1;
+  flex:
+    1;
+
+  min-width:
+    20px;
 
   border-bottom:
     3px dotted var(--lime-dim);
-
-  min-width: 20px;
 
   transform:
     translateY(-5px);
@@ -903,24 +891,31 @@ h2 {
 
 .dish .price {
 
-  font-weight: 700;
+  color:
+    var(--lime);
 
-  color: var(--lime);
+  font-weight:
+    700;
 
-  white-space: nowrap;
+  white-space:
+    nowrap;
 
 }
 
 
 .dish-desc {
 
-  max-width: 620px;
+  max-width:
+    620px;
 
-  margin-bottom: 30px;
+  margin-bottom:
+    30px;
 
-  font-size: 17px;
+  color:
+    var(--muted);
 
-  color: var(--muted);
+  font-size:
+    17px;
 
 }
 
@@ -945,51 +940,62 @@ h2 {
 
 .wallet .cols {
 
-  display: grid;
+  display:
+    grid;
 
   grid-template-columns:
     1.1fr .9fr;
 
-  gap: 56px;
+  gap:
+    56px;
 
-  align-items: center;
+  align-items:
+    center;
 
 }
 
 
 .wallet p {
 
-  margin-bottom: 16px;
+  max-width:
+    520px;
 
-  max-width: 520px;
+  margin-bottom:
+    16px;
 
 }
 
 
 .wallet .card {
 
+  padding:
+    28px;
+
+  background:
+    rgba(11,12,6,.94);
+
   border:
     3px solid var(--lime);
 
-  padding: 28px;
-
-  font-size: 17px;
-
-  background:
-    rgba(11,12,6,.92);
+  font-size:
+    17px;
 
 }
 
 
 .wallet .card div {
 
-  display: flex;
+  display:
+    flex;
 
-  justify-content: space-between;
+  justify-content:
+    space-between;
 
-  gap: 20px;
+  gap:
+    20px;
 
-  padding: 12px 0;
+  padding:
+    12px 0;
 
   border-bottom:
     2px dotted var(--lime-dim);
@@ -999,14 +1005,16 @@ h2 {
 
 .wallet .card div:last-child {
 
-  border: 0;
+  border:
+    0;
 
 }
 
 
 .wallet .card b {
 
-  color: var(--lime);
+  color:
+    var(--lime);
 
 }
 
@@ -1017,31 +1025,37 @@ h2 {
 
 .gallery {
 
-  display: grid;
+  display:
+    grid;
 
   grid-template-columns:
     repeat(4,1fr);
 
-  gap: 22px;
+  gap:
+    22px;
 
-  margin-top: 44px;
+  margin-top:
+    44px;
 
 }
 
 
 .cut {
 
-  position: relative;
+  position:
+    relative;
 
-  overflow: hidden;
+  overflow:
+    hidden;
 
   background:
-    rgba(19,21,10,.94);
+    rgba(19,21,10,.95);
 
   border:
     3px solid var(--lime-dim);
 
-  cursor: pointer;
+  cursor:
+    pointer;
 
   transform:
     translateZ(0);
@@ -1050,25 +1064,6 @@ h2 {
     transform .25s cubic-bezier(.2,.8,.2,1),
     border-color .25s ease,
     box-shadow .25s ease;
-
-}
-
-
-.cut::after {
-
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  border:
-    3px solid transparent;
-
-  pointer-events: none;
-
-  transition:
-    border-color .2s ease;
 
 }
 
@@ -1083,7 +1078,8 @@ h2 {
     var(--lime);
 
   box-shadow:
-    0 12px 30px rgba(0,0,0,.35);
+    0 12px 30px
+    rgba(0,0,0,.35);
 
 }
 
@@ -1097,7 +1093,7 @@ h2 {
 
 
 /* =========================================================
-   NFT CLICK ANIMATION
+   CLICK ANIMATION
 ========================================================= */
 
 .cut.clicked {
@@ -1121,8 +1117,19 @@ h2 {
 
 .cut.clicked::after {
 
-  border-color:
-    var(--lime);
+  content: "";
+
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  border:
+    3px solid var(--lime);
+
+  pointer-events:
+    none;
 
   animation:
     clickRing
@@ -1226,7 +1233,8 @@ h2 {
 
   0% {
 
-    opacity: 1;
+    opacity:
+      1;
 
     transform:
       scale(.92);
@@ -1235,7 +1243,8 @@ h2 {
 
   100% {
 
-    opacity: 0;
+    opacity:
+      0;
 
     transform:
       scale(1.08);
@@ -1246,42 +1255,51 @@ h2 {
 
 
 /* =========================================================
-   GALLERY IMAGE
+   IMAGE
 ========================================================= */
 
 .cut .pic {
 
-  aspect-ratio: 1;
+  aspect-ratio:
+    1 / 1;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  overflow:
+    hidden;
 
   background:
     var(--lime-dim);
 
-  display: grid;
-
-  place-items: center;
+  color:
+    var(--lime);
 
   font-family:
     var(--display);
 
-  font-size: 44px;
-
-  color:
-    var(--lime);
-
-  overflow: hidden;
+  font-size:
+    44px;
 
 }
 
 
-.cut img {
+.cut .pic img {
 
-  width: 100%;
+  width:
+    100%;
 
-  height: 100%;
+  height:
+    100%;
 
-  object-fit: cover;
+  object-fit:
+    cover;
 
-  image-rendering: pixelated;
+  image-rendering:
+    pixelated;
 
   transition:
     transform .3s ease;
@@ -1289,7 +1307,7 @@ h2 {
 }
 
 
-.cut:hover img {
+.cut:hover .pic img {
 
   transform:
     scale(1.035);
@@ -1299,23 +1317,29 @@ h2 {
 
 .cut p {
 
-  position: relative;
+  position:
+    relative;
 
-  z-index: 2;
+  z-index:
+    2;
+
+  display:
+    flex;
+
+  justify-content:
+    space-between;
+
+  gap:
+    10px;
 
   padding:
     12px 14px;
 
-  font-weight: 700;
-
   border-top:
     3px solid var(--lime-dim);
 
-  display: flex;
-
-  justify-content: space-between;
-
-  gap: 10px;
+  font-weight:
+    700;
 
 }
 
@@ -1329,7 +1353,7 @@ h2 {
 
 
 /* =========================================================
-   FINAL CTA
+   FINAL
 ========================================================= */
 
 .final {
@@ -1391,14 +1415,14 @@ h2 {
 
 footer {
 
+  padding:
+    30px 0;
+
   background:
     var(--bg);
 
   color:
     var(--muted);
-
-  padding:
-    30px 0;
 
   font-size:
     15px;
@@ -1408,11 +1432,14 @@ footer {
 
 footer .wrap {
 
-  display: flex;
+  display:
+    flex;
 
-  flex-wrap: wrap;
+  flex-wrap:
+    wrap;
 
-  justify-content: space-between;
+  justify-content:
+    space-between;
 
   gap:
     12px 24px;
@@ -1510,11 +1537,11 @@ footer a:hover {
 
   .dish .name {
 
-    white-space:
-      normal;
-
     font-size:
       21px;
+
+    white-space:
+      normal;
 
   }
 
@@ -1523,22 +1550,6 @@ footer a:hover {
 
     display:
       none;
-
-  }
-
-
-  .steak-background {
-
-    opacity:
-      .055;
-
-  }
-
-
-  .steak-background span {
-
-    font-size:
-      38px;
 
   }
 
@@ -1555,6 +1566,22 @@ footer a:hover {
 
     font-size:
       14px;
+
+  }
+
+
+  .steak-background {
+
+    opacity:
+      .05;
+
+  }
+
+
+  .steak-background span {
+
+    font-size:
+      38px;
 
   }
 
@@ -1606,7 +1633,7 @@ footer a:hover {
 
 
 <!-- =======================================================
-     ANIMATED STEAK BACKGROUND
+     ANIMATED BACKGROUND
 ======================================================= -->
 
 <div
@@ -1647,7 +1674,7 @@ footer a:hover {
     </a>
 
 
-    <nav aria-label="Main navigation">
+    <nav>
 
       <a href="#menu">
         Utility
@@ -1685,7 +1712,14 @@ footer a:hover {
   style="padding:0"
 >
 
-  <h1 class="sr">
+  <h1
+    style="
+      position:absolute;
+      width:1px;
+      height:1px;
+      overflow:hidden;
+    "
+  >
     Steakhood
   </h1>
 
@@ -1694,8 +1728,6 @@ footer a:hover {
     class="banner"
     src="assets/steakhood_banner.png"
     alt="Steakhood"
-    width="1500"
-    height="500"
   >
 
 
@@ -1714,7 +1746,6 @@ footer a:hover {
       <a
         class="btn"
         href="#mint"
-        data-link="mint"
       >
         Mint a Steakhood
       </a>
@@ -1722,16 +1753,16 @@ footer a:hover {
 
       <a
         class="btn alt"
-        href="#"
-        data-link="opensea"
+        href="https://x.com/steakhoodnft"
+        target="_blank"
+        rel="noopener noreferrer"
       >
-        View on OpenSea
+        Follow on X
       </a>
 
     </div>
 
   </div>
-
 
 
   <!-- =====================================================
@@ -1814,7 +1845,6 @@ footer a:hover {
       </p>
 
 
-
       <div class="dish">
 
         <span class="name">
@@ -1835,7 +1865,6 @@ footer a:hover {
         Stake your Steakhood to earn while you hold it.
 
       </p>
-
 
 
       <div class="dish">
@@ -1861,25 +1890,10 @@ footer a:hover {
       </p>
 
 
-
       <div class="dish">
 
         <span class="name">
-          Community-only access
+          Community access
         </span>
 
-        <span class="dots"></span>
-
-        <span class="price">
-          included
-        </span>
-
-      </div>
-
-
-      <p
-        class="dish-desc"
-        style="margin-bottom:0"
-      >
-
-        A privat
+        <span class="d
